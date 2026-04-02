@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import type { SiteContent } from "@/lib/content";
 
@@ -15,27 +15,46 @@ export default function AdminDashboard() {
   const [content, setContent] = useState<SiteContent | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     fetch("/api/content")
       .then((r) => {
-        if (r.status === 401) router.push("/admin/login");
+        if (r.status === 401) { router.push("/admin/login"); return null; }
+        if (!r.ok) throw new Error(`Failed to load content: ${r.status}`);
         return r.json();
       })
-      .then(setContent);
+      .then((data) => { if (data) setContent(data); })
+      .catch((err) => console.error("Failed to load content:", err));
   }, [router]);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const save = useCallback(async () => {
     if (!content) return;
     setSaving(true);
-    await fetch("/api/content", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(content),
-    });
-    setSaving(false);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 2500);
+    try {
+      const r = await fetch("/api/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(content),
+      });
+      if (r.ok) {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(() => setSaved(false), 2500);
+        setSaved(true);
+      } else {
+        console.error("Failed to save content:", r.status);
+      }
+    } catch (err) {
+      console.error("Failed to save content:", err);
+    } finally {
+      setSaving(false);
+    }
   }, [content]);
 
   const logout = async () => {
