@@ -71,10 +71,22 @@ export interface SiteContent {
 const CONTENT_PATH = path.join(process.cwd(), 'content', 'site.json')
 
 export function getContent(): SiteContent {
-  const raw = fs.readFileSync(CONTENT_PATH, 'utf-8')
-  return JSON.parse(raw) as SiteContent
+  try {
+    const raw = fs.readFileSync(CONTENT_PATH, 'utf-8')
+    return JSON.parse(raw) as SiteContent
+  } catch (err) {
+    throw new Error(
+      `Failed to read site content from ${CONTENT_PATH}: ${err instanceof Error ? err.message : String(err)}`
+    )
+  }
 }
 
 export function writeContent(data: SiteContent): void {
-  fs.writeFileSync(CONTENT_PATH, JSON.stringify(data, null, 2), 'utf-8')
+  try {
+    fs.writeFileSync(CONTENT_PATH, JSON.stringify(data, null, 2), 'utf-8')
+  } catch (err) {
+    throw new Error(
+      `Failed to write site content to ${CONTENT_PATH}: ${err instanceof Error ? err.message : String(err)}`
+    )
+  }
 }
