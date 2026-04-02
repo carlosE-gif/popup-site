@@ -3,69 +3,13 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import type { EventItem } from "@/lib/content";
 
 type FilterType = "All" | "Club Nights" | "Private" | "Brand Events";
 
-const events = [
-  {
-    id: 1,
-    name: "Void",
-    city: "Beirut",
-    year: "2024",
-    type: "Club Nights",
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
-    tall: true,
-  },
-  {
-    id: 2,
-    name: "Edition XII",
-    city: "Dubai",
-    year: "2024",
-    type: "Brand Events",
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
-    tall: false,
-  },
-  {
-    id: 3,
-    name: "After Hours",
-    city: "Beirut",
-    year: "2023",
-    type: "Club Nights",
-    img: "https://images.unsplash.com/photo-1571266752820-89a5571c0b43?w=600&q=80",
-    tall: false,
-  },
-  {
-    id: 4,
-    name: "Casa Blanche",
-    city: "Mykonos",
-    year: "2023",
-    type: "Private",
-    img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
-    tall: true,
-  },
-  {
-    id: 5,
-    name: "Neon Chapter",
-    city: "Riyadh",
-    year: "2024",
-    type: "Brand Events",
-    img: "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80",
-    tall: false,
-  },
-  {
-    id: 6,
-    name: "Private Shore",
-    city: "Cyprus",
-    year: "2023",
-    type: "Private",
-    img: "https://images.unsplash.com/photo-1519671282429-b44b41c2a973?w=800&q=80",
-    tall: false,
-  },
-];
-
 const filters: FilterType[] = ["All", "Club Nights", "Private", "Brand Events"];
 
-export default function Portfolio() {
+export default function Portfolio({ events }: { events: EventItem[] }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");

@@ -2,35 +2,9 @@
 
 import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import type { TestimonialItem } from "@/lib/content";
 
-const testimonials = [
-  {
-    quote:
-      "PopUp approached our brand event with a level of craft I've never seen from an event group before. Every single detail was intentional.",
-    name: "Nour Khalil",
-    role: "Marketing Director, Maison Blanc",
-  },
-  {
-    quote:
-      "From venue to lineup to the energy in the room — they executed everything without a single misstep. The night sold out in 48 hours.",
-    name: "Tarek Saad",
-    role: "Co-Founder, Frequency Club",
-  },
-  {
-    quote:
-      "Sharp nights. That's the only way to put it. PopUp doesn't do average — they do memorable.",
-    name: "Lara Moussa",
-    role: "Private Client",
-  },
-  {
-    quote:
-      "The way they integrated our product into the night felt completely organic. The audience didn't feel sold to — they felt invited.",
-    name: "Sami Haddad",
-    role: "Brand Manager, Arak & Co.",
-  },
-];
-
-export default function Testimonials() {
+export default function Testimonials({ testimonials }: { testimonials: TestimonialItem[] }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
   const [current, setCurrent] = useState(0);

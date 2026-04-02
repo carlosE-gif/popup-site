@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const headlineLines = ["THE ART", "BEHIND", "THE NIGHT"];
+import type { HeroContent } from "@/lib/content";
 
 const lineVariants = {
   hidden: { y: "110%", opacity: 0 },
@@ -23,7 +22,7 @@ const fadeUp = (delay: number) => ({
   transition: { delay, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] },
 });
 
-export default function Hero() {
+export default function Hero({ content }: { content: HeroContent }) {
   const scrollToSection = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -101,7 +100,7 @@ export default function Hero() {
 
         {/* Giant editorial headline */}
         <div className="mb-16">
-          {headlineLines.map((line, i) => (
+          {content.lines.map((line, i) => (
             <div key={line} className="overflow-hidden">
               <motion.h1
                 custom={i}
@@ -122,9 +121,7 @@ export default function Hero() {
             {...fadeUp(1.0)}
             className="max-w-sm text-[#888888] font-sans text-sm leading-relaxed"
           >
-            PopUp is the intervener group behind the region&apos;s most
-            precise, unforgettable club nights, private parties, and brand
-            events.
+            {content.descriptor}
           </motion.p>
 
           <motion.div {...fadeUp(1.15)} className="flex flex-col sm:flex-row gap-3">
@@ -133,14 +130,14 @@ export default function Hero() {
               className="group font-mono text-[11px] tracking-[0.18em] uppercase px-8 py-4 border border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-300 relative overflow-hidden"
               style={{ fontFamily: "var(--font-space-mono)" }}
             >
-              View Our Work
+              {content.ctaWork}
             </button>
             <button
               onClick={() => scrollToSection("#contact")}
               className="font-mono text-[11px] tracking-[0.18em] uppercase px-8 py-4 bg-[#0A0A0A] text-white hover:bg-[#0A0A0A]/85 transition-colors duration-300"
               style={{ fontFamily: "var(--font-space-mono)" }}
             >
-              Book PopUp
+              {content.ctaBook}
             </button>
           </motion.div>
         </div>

@@ -2,41 +2,9 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import type { ServiceItem } from "@/lib/content";
 
-const services = [
-  {
-    num: "01",
-    title: "Event Concept & Planning",
-    desc: "From initial spark to final execution — we architect the entire experience.",
-  },
-  {
-    num: "02",
-    title: "DJ & Artist Booking",
-    desc: "Direct access to the region's best selectors, headliners, and rising acts.",
-  },
-  {
-    num: "03",
-    title: "Venue Sourcing & Partnerships",
-    desc: "We know every room worth owning. Rooftops, basements, warehouses, terraces.",
-  },
-  {
-    num: "04",
-    title: "Lighting & Production",
-    desc: "Sound systems, staging, and lighting that transforms any space into atmosphere.",
-  },
-  {
-    num: "05",
-    title: "Brand Activations & Sponsorships",
-    desc: "We integrate brands into the night — not on top of it. Seamless, credible.",
-  },
-  {
-    num: "06",
-    title: "Private & Corporate Parties",
-    desc: "The same precision applied to intimate gatherings and exclusive corporate events.",
-  },
-];
-
-export default function Services() {
+export default function Services({ services }: { services: ServiceItem[] }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 

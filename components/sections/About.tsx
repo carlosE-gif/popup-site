@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import type { AboutContent } from "@/lib/content";
 
 function Counter({ to, suffix }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -29,28 +30,7 @@ function Counter({ to, suffix }: { to: number; suffix?: string }) {
   );
 }
 
-const stats = [
-  {
-    to: 150,
-    suffix: "+",
-    label: "Events Produced",
-    desc: "Club nights, private gatherings, and brand activations across the region.",
-  },
-  {
-    to: 60,
-    suffix: "+",
-    label: "Venues Partnered",
-    desc: "From underground rooms to rooftop terraces — every space, precisely chosen.",
-  },
-  {
-    to: 20,
-    suffix: "K+",
-    label: "Guests",
-    desc: "Thousands of nights, one consistent promise: you will remember this.",
-  },
-];
-
-export default function About() {
+export default function About({ content }: { content: AboutContent }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -84,11 +64,11 @@ export default function About() {
             transition={{ delay: 0.1, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-[0.95] text-white mb-10"
           >
-            Precision.
+            {content.headlineLines[0]}
             <br />
-            Craft.
+            {content.headlineLines[1]}
             <br />
-            Execution.
+            {content.headlineLines[2]}
           </motion.h2>
 
           <motion.div
@@ -97,20 +77,9 @@ export default function About() {
             transition={{ delay: 0.25, duration: 0.7, ease: "easeOut" }}
             className="space-y-5 text-white/50 font-sans text-sm leading-relaxed"
           >
-            <p>
-              PopUp isn&apos;t an agency. We&apos;re the interveners — the
-              team that steps in and transforms a space into an experience.
-              We begin with intention and end with something unforgettable.
-            </p>
-            <p>
-              From intimate private parties to large-scale brand activations,
-              we bring precision to every detail: concept, crowd, culture,
-              and craft. Our network spans the region&apos;s most exclusive
-              venues, artists, and brands.
-            </p>
-            <p className="text-white font-medium">
-              Sharp nights. Perfect execution.
-            </p>
+            <p>{content.body1}</p>
+            <p>{content.body2}</p>
+            <p className="text-white font-medium">{content.tagline}</p>
           </motion.div>
 
           <motion.div
@@ -124,14 +93,14 @@ export default function About() {
               className="text-[10px] tracking-[0.25em] text-white/30 uppercase"
               style={{ fontFamily: "var(--font-space-mono)" }}
             >
-              Est. 2020
+              {content.founded}
             </span>
           </motion.div>
         </div>
 
         {/* Right: stat counters */}
         <div className="flex flex-col divide-y divide-white/[0.08]">
-          {stats.map((stat, i) => (
+          {content.stats.map((stat, i) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, x: 20 }}

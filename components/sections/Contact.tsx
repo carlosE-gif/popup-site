@@ -2,8 +2,9 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import type { ContactContent } from "@/lib/content";
 
-export default function Contact() {
+export default function Contact({ content }: { content: ContactContent }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 
@@ -50,7 +51,7 @@ export default function Contact() {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-white max-w-3xl"
             >
-              Let&apos;s Draw Something Together
+              {content.headline}
             </motion.h2>
           </div>
         </div>
@@ -206,10 +207,10 @@ export default function Contact() {
                 Email
               </p>
               <a
-                href="mailto:hello@popup.events"
+                href={`mailto:${content.email}`}
                 className="font-playfair font-bold italic text-2xl text-white hover:text-white/60 transition-colors duration-200"
               >
-                hello@popup.events
+                {content.email}
               </a>
             </div>
 
@@ -225,11 +226,7 @@ export default function Contact() {
                 Find Us
               </p>
               <div className="flex flex-col gap-4">
-                {[
-                  { label: "IG", href: "#", full: "Instagram" },
-                  { label: "TK", href: "#", full: "TikTok" },
-                  { label: "WA", href: "#", full: "WhatsApp" },
-                ].map((social) => (
+                {content.socials.map((social) => (
                   <a
                     key={social.label}
                     href={social.href}
@@ -252,7 +249,7 @@ export default function Contact() {
 
             {/* Tagline */}
             <p className="font-playfair italic text-xl text-white/20">
-              &ldquo;Sharp Nights. Perfect Execution.&rdquo;
+              &ldquo;{content.tagline}&rdquo;
             </p>
           </motion.div>
         </div>
