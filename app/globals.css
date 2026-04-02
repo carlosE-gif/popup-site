@@ -30,10 +30,15 @@
   body {
     @apply bg-white text-[#0A0A0A];
     font-feature-settings: "kern" 1, "liga" 1;
-    cursor: none;
   }
 
-  a, button, [role="button"], input, textarea, select {
+  body.custom-cursor,
+  body.custom-cursor a,
+  body.custom-cursor button,
+  body.custom-cursor [role="button"],
+  body.custom-cursor input,
+  body.custom-cursor textarea,
+  body.custom-cursor select {
     cursor: none;
   }
 

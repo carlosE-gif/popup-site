@@ -62,7 +62,7 @@ export default function About({ content }: { content: AboutContent }) {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-[0.95] text-white mb-10"
+            className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-tight text-white mb-10"
           >
             {content.headlineLines[0]}
             <br />

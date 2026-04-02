@@ -44,12 +44,12 @@ export default function Contact({ content }: { content: ContactContent }) {
           >
             Book PopUp
           </motion.p>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pt-2">
             <motion.h2
               initial={{ y: "100%", opacity: 0 }}
               animate={inView ? { y: "0%", opacity: 1 } : {}}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-[1.0] text-white max-w-3xl"
+              className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-tight text-white max-w-3xl"
             >
               {content.headline}
             </motion.h2>

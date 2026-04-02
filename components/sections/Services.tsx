@@ -27,12 +27,12 @@ export default function Services({ services }: { services: ServiceItem[] }) {
             >
               Services
             </motion.p>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden pt-2">
               <motion.h2
                 initial={{ y: "100%", opacity: 0 }}
                 animate={inView ? { y: "0%", opacity: 1 } : {}}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="font-playfair font-bold italic text-6xl md:text-7xl lg:text-8xl leading-none text-[#0A0A0A]"
+                className="font-playfair font-bold italic text-6xl md:text-7xl lg:text-8xl leading-tight text-[#0A0A0A]"
               >
                 What We Do
               </motion.h2>

@@ -51,8 +51,10 @@ export default function Cursor() {
   }, []);
 
   useEffect(() => {
+    document.body.classList.add("custom-cursor");
     rafRef.current = requestAnimationFrame(animate);
     return () => {
+      document.body.classList.remove("custom-cursor");
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [animate]);
@@ -93,12 +95,18 @@ export default function Cursor() {
       );
     };
 
-    document.addEventListener("mousemove", move);
-    document.addEventListener("mouseenter", () => setVisible(true));
-    document.addEventListener("mouseleave", () => setVisible(false));
+    const handleMove = (e: MouseEvent) => {
+      setVisible(true);
+      move(e);
+    };
+    const handleLeave = () => setVisible(false);
+
+    document.addEventListener("mousemove", handleMove);
+    document.addEventListener("mouseleave", handleLeave);
 
     return () => {
-      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mousemove", handleMove);
+      document.removeEventListener("mouseleave", handleLeave);
     };
   }, []);
 

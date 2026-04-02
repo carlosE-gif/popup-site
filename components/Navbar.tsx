@@ -31,11 +31,10 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-500 ${
-        scrolled
-          ? "bg-[#0A0A0A] py-4 border-b border-white/10"
-          : "bg-white/95 backdrop-blur-sm py-5 border-b border-[#0A0A0A]/06"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-500 ${scrolled
+        ? "bg-[#0A0A0A] py-4 border-b border-white/10"
+        : "bg-white/95 backdrop-blur-sm py-5 border-b border-[#0A0A0A]/06"
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-16 flex items-center justify-between">
         {/* Wordmark */}
@@ -47,17 +46,15 @@ export default function Navbar() {
           }}
           className="group relative"
         >
-          <span
-            className={`font-playfair text-2xl font-bold italic tracking-tight transition-colors duration-500 ${
-              scrolled ? "text-white" : "text-[#0A0A0A]"
-            }`}
-          >
-            PopUp
-          </span>
-          <span
-            className={`wordmark-underline absolute -bottom-0.5 left-0 right-0 h-px transition-colors duration-500 ${
-              scrolled ? "bg-white" : "bg-[#0A0A0A]"
-            }`}
+          <img
+            src="/logo.png"
+            alt="PopUp"
+            className="h-12 w-auto transition-all duration-500"
+            style={{
+              filter: scrolled
+                ? "brightness(0) invert(1)"
+                : "brightness(0)",
+            }}
           />
         </a>
 
@@ -67,17 +64,15 @@ export default function Navbar() {
             <li key={link.label}>
               <button
                 onClick={() => handleNavClick(link.href)}
-                className={`font-mono text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative group ${
-                  scrolled
-                    ? "text-white/60 hover:text-white"
-                    : "text-[#888888] hover:text-[#0A0A0A]"
-                }`}
+                className={`font-mono text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 relative group ${scrolled
+                  ? "text-white/60 hover:text-white"
+                  : "text-[#888888] hover:text-[#0A0A0A]"
+                  }`}
               >
                 {link.label}
                 <span
-                  className={`absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${
-                    scrolled ? "bg-white" : "bg-[#0A0A0A]"
-                  }`}
+                  className={`absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${scrolled ? "bg-white" : "bg-[#0A0A0A]"
+                    }`}
                 />
               </button>
             </li>
@@ -88,11 +83,10 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <button
             onClick={() => handleNavClick("#contact")}
-            className={`hidden md:block font-mono text-[11px] tracking-[0.2em] uppercase px-5 py-2.5 border transition-all duration-300 ${
-              scrolled
-                ? "border-white text-white hover:bg-white hover:text-[#0A0A0A]"
-                : "border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white"
-            }`}
+            className={`hidden md:block font-mono text-[11px] tracking-[0.2em] uppercase px-5 py-2.5 border transition-all duration-300 ${scrolled
+              ? "border-white text-white hover:bg-white hover:text-[#0A0A0A]"
+              : "border-[#0A0A0A] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white"
+              }`}
           >
             Book PopUp
           </button>
@@ -105,21 +99,18 @@ export default function Navbar() {
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-              className={`block w-6 h-px transition-colors duration-500 ${
-                scrolled ? "bg-white" : "bg-[#0A0A0A]"
-              }`}
+              className={`block w-6 h-px transition-colors duration-500 ${scrolled ? "bg-white" : "bg-[#0A0A0A]"
+                }`}
             />
             <motion.span
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className={`block w-6 h-px transition-colors duration-500 ${
-                scrolled ? "bg-white" : "bg-[#0A0A0A]"
-              }`}
+              className={`block w-6 h-px transition-colors duration-500 ${scrolled ? "bg-white" : "bg-[#0A0A0A]"
+                }`}
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-              className={`block w-6 h-px transition-colors duration-500 ${
-                scrolled ? "bg-white" : "bg-[#0A0A0A]"
-              }`}
+              className={`block w-6 h-px transition-colors duration-500 ${scrolled ? "bg-white" : "bg-[#0A0A0A]"
+                }`}
             />
           </button>
         </div>
@@ -133,11 +124,10 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className={`md:hidden overflow-hidden border-t ${
-              scrolled
-                ? "bg-[#0A0A0A] border-white/10"
-                : "bg-white border-[#0A0A0A]/08"
-            }`}
+            className={`md:hidden overflow-hidden border-t ${scrolled
+              ? "bg-[#0A0A0A] border-white/10"
+              : "bg-white border-[#0A0A0A]/08"
+              }`}
           >
             <ul className="flex flex-col px-6 py-10 gap-7">
               {navLinks.map((link, i) => (
@@ -149,11 +139,10 @@ export default function Navbar() {
                 >
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className={`font-playfair text-4xl font-bold italic transition-colors duration-200 block w-full text-left ${
-                      scrolled
-                        ? "text-white hover:text-white/70"
-                        : "text-[#0A0A0A] hover:text-[#888888]"
-                    }`}
+                    className={`font-playfair text-4xl font-bold italic transition-colors duration-200 block w-full text-left ${scrolled
+                      ? "text-white hover:text-white/70"
+                      : "text-[#0A0A0A] hover:text-[#888888]"
+                      }`}
                   >
                     {link.label}
                   </button>
@@ -166,11 +155,10 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => handleNavClick("#contact")}
-                  className={`font-mono text-xs tracking-[0.2em] uppercase px-6 py-4 w-full transition-colors duration-300 ${
-                    scrolled
-                      ? "bg-white text-[#0A0A0A] hover:bg-white/90"
-                      : "bg-[#0A0A0A] text-white hover:bg-[#0A0A0A]/90"
-                  }`}
+                  className={`font-mono text-xs tracking-[0.2em] uppercase px-6 py-4 w-full transition-colors duration-300 ${scrolled
+                    ? "bg-white text-[#0A0A0A] hover:bg-white/90"
+                    : "bg-[#0A0A0A] text-white hover:bg-[#0A0A0A]/90"
+                    }`}
                 >
                   Book PopUp
                 </button>

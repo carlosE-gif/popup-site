@@ -88,7 +88,7 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-[#0A0A0A] text-white flex flex-col">
       {/* Top bar */}
       <header className="border-b border-white/08 px-8 py-4 flex items-center justify-between">
-        <span className="font-playfair font-bold italic text-xl text-white">PopUp</span>
+        <img src="/logo.png" alt="PopUp" className="h-8 w-auto" style={{ filter: "brightness(0) invert(1)" }} />
         <div className="flex items-center gap-6">
           <a
             href="/"
