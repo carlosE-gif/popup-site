@@ -4,91 +4,145 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #0A0A0A;
+    --card: #F5F5F5;
+    --card-foreground: #0A0A0A;
+    --popover: #FFFFFF;
+    --popover-foreground: #0A0A0A;
+    --primary: #0A0A0A;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F5F5F5;
+    --secondary-foreground: #0A0A0A;
+    --muted: #F5F5F5;
+    --muted-foreground: #888888;
+    --accent: #0A0A0A;
+    --accent-foreground: #FFFFFF;
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: rgba(10, 10, 10, 0.12);
+    --input: rgba(10, 10, 10, 0.08);
+    --ring: #0A0A0A;
+    --radius: 0rem;
+  }
+
+  body {
+    @apply bg-white text-[#0A0A0A];
+    font-feature-settings: "kern" 1, "liga" 1;
+    cursor: none;
+  }
+
+  a, button, [role="button"], input, textarea, select {
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: #0A0A0A;
+    color: #FFFFFF;
   }
 }
 
-@layer base {
-  .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair), Georgia, serif;
   }
-  :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+
+  .font-mono-space {
+    font-family: var(--font-space-mono), monospace;
   }
-  .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+
+  .text-balance {
+    text-wrap: balance;
   }
-  * {
-    @apply border-border outline-ring/50;
+
+  .section-label {
+    font-family: var(--font-space-mono), monospace;
+    @apply tracking-[0.2em] text-xs text-[#888888] uppercase;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
+}
+
+/* Grain overlay */
+@keyframes grain-anim {
+  0%, 100% { transform: translate(0, 0) }
+  10% { transform: translate(-2%, -3%) }
+  20% { transform: translate(3%, 2%) }
+  30% { transform: translate(-1%, 4%) }
+  40% { transform: translate(4%, -1%) }
+  50% { transform: translate(-3%, 3%) }
+  60% { transform: translate(1%, -4%) }
+  70% { transform: translate(-4%, 1%) }
+  80% { transform: translate(2%, -2%) }
+  90% { transform: translate(-2%, 4%) }
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.04;
+  overflow: hidden;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  animation: grain-anim 0.4s steps(1) infinite;
+}
+
+/* Pencil stroke draw animation */
+@keyframes draw-stroke {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.pencil-stroke {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-stroke 2s ease forwards;
+  animation-delay: 0.8s;
+}
+
+/* Underline draw animation for wordmark */
+@keyframes draw-underline {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.wordmark-underline {
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: draw-underline 0.8s ease forwards;
+  animation-delay: 0.4s;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: #0A0A0A;
+}
+
+/* Shadcn form overrides for black/white */
+.pencil-input {
+  @apply bg-transparent border-0 border-b border-[#0A0A0A]/20 rounded-none px-0 py-3 text-[#0A0A0A] placeholder:text-[#888888] focus:border-[#0A0A0A] focus:ring-0 focus-visible:ring-0 focus-visible:outline-none transition-colors;
+  font-family: var(--font-dm-sans), sans-serif;
+}
+
+.pencil-select {
+  @apply bg-transparent border-0 border-b border-[#0A0A0A]/20 rounded-none;
 }
