@@ -1,0 +1,52 @@
+{
+  "hero": {
+    "lines": ["THE ART", "BEHIND", "THE NIGHT"],
+    "descriptor": "PopUp is the intervener group behind the region's most precise, unforgettable club nights, private parties, and brand events.",
+    "ctaWork": "View Our Work",
+    "ctaBook": "Book PopUp"
+  },
+  "about": {
+    "headlineLines": ["Precision.", "Craft.", "Execution."],
+    "body1": "PopUp isn't an agency. We're the interveners — the team that steps in and transforms a space into an experience. We begin with intention and end with something unforgettable.",
+    "body2": "From intimate private parties to large-scale brand activations, we bring precision to every detail: concept, crowd, culture, and craft. Our network spans the region's most exclusive venues, artists, and brands.",
+    "tagline": "Sharp nights. Perfect execution.",
+    "founded": "Est. 2020",
+    "stats": [
+      { "to": 150, "suffix": "+", "label": "Events Produced", "desc": "Club nights, private gatherings, and brand activations across the region." },
+      { "to": 60, "suffix": "+", "label": "Venues Partnered", "desc": "From underground rooms to rooftop terraces — every space, precisely chosen." },
+      { "to": 20, "suffix": "K+", "label": "Guests", "desc": "Thousands of nights, one consistent promise: you will remember this." }
+    ]
+  },
+  "services": [
+    { "num": "01", "title": "Event Concept & Planning", "desc": "From initial spark to final execution — we architect the entire experience." },
+    { "num": "02", "title": "DJ & Artist Booking", "desc": "Direct access to the region's best selectors, headliners, and rising acts." },
+    { "num": "03", "title": "Venue Sourcing & Partnerships", "desc": "We know every room worth owning. Rooftops, basements, warehouses, terraces." },
+    { "num": "04", "title": "Lighting & Production", "desc": "Sound systems, staging, and lighting that transforms any space into atmosphere." },
+    { "num": "05", "title": "Brand Activations & Sponsorships", "desc": "We integrate brands into the night — not on top of it. Seamless, credible." },
+    { "num": "06", "title": "Private & Corporate Parties", "desc": "The same precision applied to intimate gatherings and exclusive corporate events." }
+  ],
+  "portfolio": [
+    { "id": 1, "name": "Void", "city": "Beirut", "year": "2024", "type": "Club Nights", "img": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80", "tall": true },
+    { "id": 2, "name": "Edition XII", "city": "Dubai", "year": "2024", "type": "Brand Events", "img": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80", "tall": false },
+    { "id": 3, "name": "After Hours", "city": "Beirut", "year": "2023", "type": "Club Nights", "img": "https://images.unsplash.com/photo-1571266752820-89a5571c0b43?w=600&q=80", "tall": false },
+    { "id": 4, "name": "Casa Blanche", "city": "Mykonos", "year": "2023", "type": "Private", "img": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80", "tall": true },
+    { "id": 5, "name": "Neon Chapter", "city": "Riyadh", "year": "2024", "type": "Brand Events", "img": "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80", "tall": false },
+    { "id": 6, "name": "Private Shore", "city": "Cyprus", "year": "2023", "type": "Private", "img": "https://images.unsplash.com/photo-1519671282429-b44b41c2a973?w=800&q=80", "tall": false }
+  ],
+  "testimonials": [
+    { "quote": "PopUp approached our brand event with a level of craft I've never seen from an event group before. Every single detail was intentional.", "name": "Nour Khalil", "role": "Marketing Director, Maison Blanc" },
+    { "quote": "From venue to lineup to the energy in the room — they executed everything without a single misstep. The night sold out in 48 hours.", "name": "Tarek Saad", "role": "Co-Founder, Frequency Club" },
+    { "quote": "Sharp nights. That's the only way to put it. PopUp doesn't do average — they do memorable.", "name": "Lara Moussa", "role": "Private Client" },
+    { "quote": "The way they integrated our product into the night felt completely organic. The audience didn't feel sold to — they felt invited.", "name": "Sami Haddad", "role": "Brand Manager, Arak & Co." }
+  ],
+  "contact": {
+    "headline": "Let's Draw Something Together",
+    "email": "hello@popup.events",
+    "tagline": "Sharp Nights. Perfect Execution.",
+    "socials": [
+      { "label": "IG", "full": "Instagram", "href": "#" },
+      { "label": "TK", "full": "TikTok", "href": "#" },
+      { "label": "WA", "full": "WhatsApp", "href": "#" }
+    ]
+  }
+}
