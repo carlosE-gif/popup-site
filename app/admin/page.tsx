@@ -15,6 +15,7 @@ export default function AdminDashboard() {
   const [content, setContent] = useState<SiteContent | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [saveFailed, setSaveFailed] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -37,6 +38,7 @@ export default function AdminDashboard() {
   const save = useCallback(async () => {
     if (!content) return;
     setSaving(true);
+    setSaveFailed(false);
     try {
       const r = await fetch("/api/content", {
         method: "PUT",
@@ -49,9 +51,11 @@ export default function AdminDashboard() {
         setSaved(true);
       } else {
         console.error("Failed to save content:", r.status);
+        setSaveFailed(true);
       }
     } catch (err) {
       console.error("Failed to save content:", err);
+      setSaveFailed(true);
     } finally {
       setSaving(false);
     }
@@ -104,7 +108,7 @@ export default function AdminDashboard() {
             className="text-[10px] tracking-[0.2em] uppercase px-6 py-2.5 bg-white text-[#0A0A0A] hover:bg-white/85 transition-colors disabled:opacity-50"
             style={{ fontFamily: "var(--font-space-mono)" }}
           >
-            {saving ? "Saving..." : saved ? "Saved ✓" : "Save Changes"}
+            {saving ? "Saving..." : saved ? "Saved ✓" : saveFailed ? "Save failed, retry" : "Save Changes"}
           </button>
           <button
             onClick={logout}
@@ -253,8 +257,8 @@ export default function AdminDashboard() {
           {tab === "Portfolio" && (
             <Section title="Portfolio">
               {content.portfolio.map((event, i) => (
-                <div key={event.id} className="mb-8 pb-8 border-b border-white/06 last:border-0">
-                  <div className="grid grid-cols-3 gap-4 mb-3">
+                <div key={event.id} className="mb-10 pb-10 border-b border-white/06 last:border-0">
+                  <div className="grid grid-cols-3 gap-4 mb-5">
                     <Field label="Event Name">
                       <input className={FIELD} value={event.name} onChange={(e) => {
                         const next = content.portfolio.map((ev, j) => j === i ? { ...ev, name: e.target.value } : ev);
@@ -274,20 +278,58 @@ export default function AdminDashboard() {
                       }} />
                     </Field>
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <Field label="Type (Club Nights / Private / Brand Events)">
-                      <input className={FIELD} value={event.type} onChange={(e) => {
-                        const next = content.portfolio.map((ev, j) => j === i ? { ...ev, type: e.target.value } : ev);
-                        set("portfolio", next);
-                      }} />
+                  <div className="grid grid-cols-2 gap-6 mb-5">
+                    <Field label="Type">
+                      <select
+                        className={FIELD + " cursor-pointer"}
+                        value={event.type}
+                        onChange={(e) => {
+                          const next = content.portfolio.map((ev, j) => j === i ? { ...ev, type: e.target.value } : ev);
+                          set("portfolio", next);
+                        }}
+                      >
+                        <option value="Club Nights" className="bg-[#0A0A0A]">Club Nights</option>
+                        <option value="Private" className="bg-[#0A0A0A]">Private</option>
+                        <option value="Brand Events" className="bg-[#0A0A0A]">Brand Events</option>
+                      </select>
                     </Field>
-                    <Field label="Image URL">
-                      <input className={FIELD} value={event.img} onChange={(e) => {
-                        const next = content.portfolio.map((ev, j) => j === i ? { ...ev, img: e.target.value } : ev);
-                        set("portfolio", next);
-                      }} />
+                    <Field label="Aspect Ratio">
+                      <div className="flex items-center gap-6 pt-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const next = content.portfolio.map((ev, j) => j === i ? { ...ev, tall: false } : ev);
+                            set("portfolio", next);
+                          }}
+                          className={`flex flex-col items-center gap-1.5 transition-opacity ${!event.tall ? "opacity-100" : "opacity-30 hover:opacity-60"}`}
+                        >
+                          <div className={`border transition-colors ${!event.tall ? "border-white" : "border-white/20"}`} style={{ width: 32, height: 24 }} />
+                          <span className="text-[9px] tracking-widest text-white/40 uppercase" style={{ fontFamily: "var(--font-space-mono)" }}>Landscape</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const next = content.portfolio.map((ev, j) => j === i ? { ...ev, tall: true } : ev);
+                            set("portfolio", next);
+                          }}
+                          className={`flex flex-col items-center gap-1.5 transition-opacity ${event.tall ? "opacity-100" : "opacity-30 hover:opacity-60"}`}
+                        >
+                          <div className={`border transition-colors ${event.tall ? "border-white" : "border-white/20"}`} style={{ width: 24, height: 32 }} />
+                          <span className="text-[9px] tracking-widest text-white/40 uppercase" style={{ fontFamily: "var(--font-space-mono)" }}>Portrait</span>
+                        </button>
+                      </div>
                     </Field>
                   </div>
+                  <Field label="Image">
+                    <ImageUploader
+                      value={event.img}
+                      tall={event.tall}
+                      onChange={(url) => {
+                        const next = content.portfolio.map((ev, j) => j === i ? { ...ev, img: url } : ev);
+                        set("portfolio", next);
+                      }}
+                    />
+                  </Field>
                 </div>
               ))}
             </Section>
@@ -332,6 +374,9 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-2 gap-6">
                 <Field label="Email">
                   <input className={FIELD} value={content.contact.email} onChange={(e) => set("contact.email", e.target.value)} />
+                </Field>
+                <Field label="Phone">
+                  <input className={FIELD} value={content.contact.phone} onChange={(e) => set("contact.phone", e.target.value)} />
                 </Field>
                 <Field label="Tagline">
                   <input className={FIELD} value={content.contact.tagline} onChange={(e) => set("contact.tagline", e.target.value)} />
@@ -407,6 +452,134 @@ function Divider({ label }: { label: string }) {
       >
         {label}
       </span>
+    </div>
+  );
+}
+
+function ImageUploader({
+  value,
+  tall,
+  onChange,
+}: {
+  value: string;
+  tall: boolean;
+  onChange: (url: string) => void;
+}) {
+  const [dragging, setDragging] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const upload = async (file: File) => {
+    // Bigger bodies are rejected by Vercel before reaching the API route, so check here too
+    if (file.size > 4 * 1024 * 1024) {
+      setUploadError("File too large. Max 4MB.");
+      return;
+    }
+    setUploading(true);
+    setUploadError(null);
+    const form = new FormData();
+    form.append("file", file);
+    try {
+      const r = await fetch("/api/upload", { method: "POST", body: form });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error ?? "Upload failed");
+      onChange(data.url);
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Upload failed");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragging(false);
+    const file = e.dataTransfer.files[0];
+    if (file) upload(file);
+  };
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) upload(file);
+    e.target.value = "";
+  };
+
+  return (
+    <div className="flex gap-6 items-start">
+      {/* Drop zone */}
+      <div
+        onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+        onDragLeave={() => setDragging(false)}
+        onDrop={handleDrop}
+        onClick={() => !uploading && inputRef.current?.click()}
+        className={`relative flex-shrink-0 cursor-pointer border overflow-hidden transition-colors duration-200 ${
+          dragging ? "border-white/60 bg-white/05" : "border-white/15 hover:border-white/40"
+        } ${uploading ? "cursor-wait" : ""}`}
+        style={{ width: tall ? 100 : 133, height: tall ? 133 : 100 }}
+      >
+        {value ? (
+          <>
+            <img src={value} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1">
+              {uploading ? (
+                <span className="text-[9px] tracking-widest text-white uppercase" style={{ fontFamily: "var(--font-space-mono)" }}>Uploading…</span>
+              ) : (
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" /></svg>
+                  <span className="text-[9px] tracking-widest text-white uppercase" style={{ fontFamily: "var(--font-space-mono)" }}>Replace</span>
+                </>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+            {uploading ? (
+              <span className="text-[9px] tracking-widest text-white/40 uppercase" style={{ fontFamily: "var(--font-space-mono)" }}>Uploading…</span>
+            ) : (
+              <>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white/20">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                </svg>
+                <span className="text-[9px] tracking-widest text-white/20 uppercase text-center px-2" style={{ fontFamily: "var(--font-space-mono)" }}>
+                  {dragging ? "Drop here" : "Drag & drop"}
+                </span>
+              </>
+            )}
+          </div>
+        )}
+        <input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={handleFile} />
+      </div>
+
+      {/* Right side: URL input + browse button + error */}
+      <div className="flex flex-col gap-3 flex-1">
+        <div className="flex flex-col gap-1">
+          <span className="text-[9px] tracking-[0.2em] text-white/20 uppercase" style={{ fontFamily: "var(--font-space-mono)" }}>
+            Image URL
+          </span>
+          <input
+            className={FIELD}
+            value={value}
+            placeholder="https://... or upload a file"
+            onChange={(e) => onChange(e.target.value)}
+          />
+        </div>
+        <button
+          type="button"
+          onClick={() => inputRef.current?.click()}
+          disabled={uploading}
+          className="self-start text-[9px] tracking-[0.15em] uppercase px-4 py-2 border border-white/20 text-white/40 hover:border-white/50 hover:text-white/70 transition-colors disabled:opacity-30"
+          style={{ fontFamily: "var(--font-space-mono)" }}
+        >
+          {uploading ? "Uploading…" : "Browse File"}
+        </button>
+        {uploadError && (
+          <p className="text-[9px] text-red-400" style={{ fontFamily: "var(--font-space-mono)" }}>{uploadError}</p>
+        )}
+        <p className="text-[9px] text-white/15" style={{ fontFamily: "var(--font-space-mono)" }}>
+          JPG, PNG, WebP, GIF — max 10 MB
+        </p>
+      </div>
     </div>
   );
 }

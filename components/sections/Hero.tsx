@@ -33,7 +33,7 @@ export default function Hero({ content }: { content: HeroContent }) {
       {/* Grain texture */}
       <div className="grain-overlay" aria-hidden="true" />
 
-      {/* Pencil stroke SVG — draws itself across the page */}
+      {/* Subtle wave line */}
       <div className="absolute inset-x-0 top-[45%] pointer-events-none overflow-hidden">
         <svg
           viewBox="0 0 1440 40"
@@ -48,7 +48,7 @@ export default function Hero({ content }: { content: HeroContent }) {
             strokeWidth="0.8"
             strokeLinecap="round"
             opacity="0.12"
-            className="pencil-stroke"
+            className="line-draw"
           />
         </svg>
       </div>
@@ -142,7 +142,7 @@ export default function Hero({ content }: { content: HeroContent }) {
           </motion.div>
         </div>
 
-        {/* Animated SVG pencil stroke line across full width */}
+        {/* Divider line */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -162,7 +162,7 @@ export default function Hero({ content }: { content: HeroContent }) {
               strokeWidth="1"
               strokeLinecap="round"
               opacity="0.2"
-              className="pencil-stroke"
+              className="line-draw"
             />
           </svg>
         </motion.div>

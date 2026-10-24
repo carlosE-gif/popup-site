@@ -5,18 +5,24 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import type { EventItem } from "@/lib/content";
 
-type FilterType = "All" | "Club Nights" | "Private" | "Brand Events";
-
-const filters: FilterType[] = ["All", "Club Nights", "Private", "Brand Events"];
+const ALL = "All";
 
 export default function Portfolio({ events }: { events: EventItem[] }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
-  const [activeFilter, setActiveFilter] = useState<FilterType>("All");
+  const [activeFilter, setActiveFilter] = useState(ALL);
 
-  const filtered = activeFilter === "All"
+  // Tabs come from the events' cities, busiest first
+  const counts = events.reduce<Record<string, number>>(
+    (acc, e) => ({ ...acc, [e.city]: (acc[e.city] ?? 0) + 1 }),
+    {}
+  );
+  const filters = [ALL, ...Object.keys(counts).sort((a, b) => counts[b] - counts[a])];
+  const countFor = (f: string) => (f === ALL ? events.length : counts[f]);
+
+  const filtered = activeFilter === ALL
     ? events
-    : events.filter((e) => e.type === activeFilter);
+    : events.filter((e) => e.city === activeFilter);
 
   return (
     <section
@@ -37,16 +43,14 @@ export default function Portfolio({ events }: { events: EventItem[] }) {
             >
               Portfolio
             </motion.p>
-            <div className="overflow-hidden pt-2">
-              <motion.h2
-                initial={{ y: "100%", opacity: 0 }}
-                animate={inView ? { y: "0%", opacity: 1 } : {}}
-                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="font-playfair font-bold italic text-6xl md:text-7xl lg:text-8xl leading-tight text-white"
-              >
-                Past Events
-              </motion.h2>
-            </div>
+            <motion.h2
+              initial={{ y: 40, opacity: 0 }}
+              animate={inView ? { y: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="font-playfair font-bold italic text-6xl md:text-7xl lg:text-8xl leading-tight text-white"
+            >
+              Past Events
+            </motion.h2>
           </div>
 
           {/* Filter tabs */}
@@ -54,20 +58,27 @@ export default function Portfolio({ events }: { events: EventItem[] }) {
             initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="flex flex-wrap gap-2"
+            className="flex flex-wrap gap-x-8 gap-y-3 border-b border-white/10"
           >
             {filters.map((f) => (
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
-                className={`font-mono text-[10px] tracking-[0.15em] uppercase px-4 py-2 border transition-all duration-200 ${
-                  activeFilter === f
-                    ? "border-white bg-white text-[#0A0A0A]"
-                    : "border-white/20 text-white/40 hover:border-white/50 hover:text-white/70"
+                aria-pressed={activeFilter === f}
+                className={`relative pb-3 font-mono text-[10px] tracking-[0.2em] uppercase transition-colors duration-200 ${
+                  activeFilter === f ? "text-white" : "text-white/35 hover:text-white/70"
                 }`}
                 style={{ fontFamily: "var(--font-space-mono)" }}
               >
                 {f}
+                <sup className="ml-1 text-[8px] tracking-normal text-white/40">{countFor(f)}</sup>
+                {activeFilter === f && (
+                  <motion.span
+                    layoutId="portfolio-tab-underline"
+                    className="absolute left-0 right-0 -bottom-px h-px bg-white"
+                    transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                  />
+                )}
               </button>
             ))}
           </motion.div>

@@ -105,13 +105,13 @@
   animation: grain-anim 0.4s steps(1) infinite;
 }
 
-/* Pencil stroke draw animation */
+/* Line draw animation */
 @keyframes draw-stroke {
   from { stroke-dashoffset: 1000; }
   to { stroke-dashoffset: 0; }
 }
 
-.pencil-stroke {
+.line-draw {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: draw-stroke 2s ease forwards;
@@ -142,12 +142,3 @@
   background: #0A0A0A;
 }
 
-/* Shadcn form overrides for black/white */
-.pencil-input {
-  @apply bg-transparent border-0 border-b border-[#0A0A0A]/20 rounded-none px-0 py-3 text-[#0A0A0A] placeholder:text-[#888888] focus:border-[#0A0A0A] focus:ring-0 focus-visible:ring-0 focus-visible:outline-none transition-colors;
-  font-family: var(--font-dm-sans), sans-serif;
-}
-
-.pencil-select {
-  @apply bg-transparent border-0 border-b border-[#0A0A0A]/20 rounded-none;
-}

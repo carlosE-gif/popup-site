@@ -9,9 +9,9 @@ import Portfolio from "@/components/sections/Portfolio";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
-export default function Home() {
+export default async function Home() {
   noStore()
-  const content = getContent()
+  const content = await getContent()
 
   return (
     <>
