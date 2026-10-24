@@ -33,7 +33,7 @@
         "desc": "From underground rooms to rooftop terraces — every space, precisely chosen."
       },
       {
-        "to": 20,
+        "to": 50,
         "suffix": "K+",
         "label": "Guests",
         "desc": "Thousands of nights, one consistent promise: you will remember this."
@@ -75,11 +75,11 @@
   "portfolio": [
     {
       "id": 1,
-      "name": "KIN — The Yearly Reunion",
-      "city": "Lebanon",
+      "name": "Lazare — LFW Special",
+      "city": "London",
       "year": "2026",
       "type": "Club Nights",
-      "img": "/events/kin.jpg",
+      "img": "/events/lazare.jpg",
       "tall": true
     },
     {
@@ -93,15 +93,33 @@
     },
     {
       "id": 3,
-      "name": "Lazare — LFW Special",
-      "city": "London",
+      "name": "KIN — The Yearly Reunion",
+      "city": "Lebanon",
       "year": "2026",
       "type": "Club Nights",
-      "img": "/events/lazare.jpg",
+      "img": "/events/kin.jpg",
       "tall": true
     },
     {
       "id": 4,
+      "name": "Odin",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/odin.jpg",
+      "tall": true
+    },
+    {
+      "id": 5,
+      "name": "Aegis Festival",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/aegis.jpg",
+      "tall": true
+    },
+    {
+      "id": 6,
       "name": "Matt Merheb",
       "city": "London",
       "year": "2026",
@@ -110,7 +128,7 @@
       "tall": true
     },
     {
-      "id": 5,
+      "id": 7,
       "name": "Laolu — 1 Year Birthday",
       "city": "London",
       "year": "2026",
@@ -119,7 +137,7 @@
       "tall": true
     },
     {
-      "id": 6,
+      "id": 8,
       "name": "PopUp x The Door Club",
       "city": "Berlin",
       "year": "2026",
@@ -128,7 +146,25 @@
       "tall": true
     },
     {
-      "id": 7,
+      "id": 9,
+      "name": "Arodes",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/arodes.jpg",
+      "tall": true
+    },
+    {
+      "id": 10,
+      "name": "Après Ski",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/apres-ski.jpg",
+      "tall": true
+    },
+    {
+      "id": 11,
       "name": "Massuma & Matt",
       "city": "London",
       "year": "2026",
@@ -137,7 +173,34 @@
       "tall": true
     },
     {
-      "id": 8,
+      "id": 12,
+      "name": "Jimi Jules — NYE",
+      "city": "Lebanon",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/jimi-jules.jpg",
+      "tall": true
+    },
+    {
+      "id": 13,
+      "name": "Ankhoï",
+      "city": "Lebanon",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/ankhoi.jpg",
+      "tall": true
+    },
+    {
+      "id": 14,
+      "name": "Seaside Arena",
+      "city": "Lebanon",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/seaside-arena.jpg",
+      "tall": true
+    },
+    {
+      "id": 15,
       "name": "Nic Merheb x Matt Merheb",
       "city": "London",
       "year": "2025",
@@ -146,7 +209,7 @@
       "tall": false
     },
     {
-      "id": 9,
+      "id": 16,
       "name": "&friends",
       "city": "London",
       "year": "2025",
@@ -155,7 +218,7 @@
       "tall": true
     },
     {
-      "id": 10,
+      "id": 17,
       "name": "Peace Control",
       "city": "London",
       "year": "2025",
@@ -164,7 +227,7 @@
       "tall": true
     },
     {
-      "id": 11,
+      "id": 18,
       "name": "ARY:EH",
       "city": "London",
       "year": "2025",
@@ -173,7 +236,7 @@
       "tall": true
     },
     {
-      "id": 12,
+      "id": 19,
       "name": "PopUp x Scotch",
       "city": "London",
       "year": "2025",
@@ -182,7 +245,7 @@
       "tall": false
     },
     {
-      "id": 13,
+      "id": 20,
       "name": "DOVnROBS",
       "city": "London",
       "year": "2024",
@@ -191,7 +254,7 @@
       "tall": true
     },
     {
-      "id": 14,
+      "id": 21,
       "name": "Laolu",
       "city": "London",
       "year": "2024",
@@ -200,7 +263,7 @@
       "tall": true
     },
     {
-      "id": 15,
+      "id": 22,
       "name": "Caiiro",
       "city": "London",
       "year": "2024",
@@ -209,7 +272,7 @@
       "tall": true
     },
     {
-      "id": 16,
+      "id": 23,
       "name": "Chambord",
       "city": "London",
       "year": "2024",
@@ -218,7 +281,7 @@
       "tall": true
     },
     {
-      "id": 17,
+      "id": 24,
       "name": "Moojo",
       "city": "London",
       "year": "2024",
@@ -227,7 +290,7 @@
       "tall": false
     },
     {
-      "id": 18,
+      "id": 25,
       "name": "Marten Lou",
       "city": "London",
       "year": "2024",
@@ -236,7 +299,7 @@
       "tall": true
     },
     {
-      "id": 19,
+      "id": 26,
       "name": "Deep Root Tribe",
       "city": "London",
       "year": "2024",
