@@ -44,16 +44,14 @@ export default function Contact({ content }: { content: ContactContent }) {
           >
             Book PopUp
           </motion.p>
-          <div className="overflow-hidden pt-2">
-            <motion.h2
-              initial={{ y: "100%", opacity: 0 }}
-              animate={inView ? { y: "0%", opacity: 1 } : {}}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-tight text-white max-w-3xl"
-            >
-              {content.headline}
-            </motion.h2>
-          </div>
+          <motion.h2
+            initial={{ y: 40, opacity: 0 }}
+            animate={inView ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="font-playfair font-bold italic text-5xl md:text-6xl lg:text-7xl leading-tight text-white max-w-3xl"
+          >
+            {content.headline}
+          </motion.h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 md:gap-24">
@@ -211,6 +209,18 @@ export default function Contact({ content }: { content: ContactContent }) {
                 className="font-playfair font-bold italic text-2xl text-white hover:text-white/60 transition-colors duration-200"
               >
                 {content.email}
+              </a>
+              <p
+                className="font-mono text-[10px] tracking-[0.2em] text-white/30 uppercase mt-8 mb-3"
+                style={{ fontFamily: "var(--font-space-mono)" }}
+              >
+                Phone
+              </p>
+              <a
+                href={`tel:${content.phone.replace(/[^\d+]/g, "")}`}
+                className="font-playfair font-bold italic text-2xl text-white hover:text-white/60 transition-colors duration-200"
+              >
+                {content.phone}
               </a>
             </div>
 

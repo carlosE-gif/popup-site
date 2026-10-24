@@ -21,7 +21,7 @@
     "founded": "Est. 2020",
     "stats": [
       {
-        "to": 150,
+        "to": 70,
         "suffix": "+",
         "label": "Events Produced",
         "desc": "Club nights, private gatherings, and brand activations across the region."
@@ -33,7 +33,7 @@
         "desc": "From underground rooms to rooftop terraces — every space, precisely chosen."
       },
       {
-        "to": 20,
+        "to": 50,
         "suffix": "K+",
         "label": "Guests",
         "desc": "Thousands of nights, one consistent promise: you will remember this."
@@ -75,57 +75,282 @@
   "portfolio": [
     {
       "id": 1,
-      "name": "Void",
-      "city": "Beirut",
-      "year": "2024",
+      "name": "Lazare — LFW Special",
+      "city": "London",
+      "year": "2026",
       "type": "Club Nights",
-      "img": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80",
-      "tall": true
+      "img": "/events/lazare.jpg",
+      "tall": true,
+      "desc": "Gallery · Sat 19 Sep 2026",
+      "link": "https://ra.co/events/2520772"
     },
     {
       "id": 2,
-      "name": "Edition XII",
-      "city": "Dubai",
-      "year": "2024",
-      "type": "Brand Events",
-      "img": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80",
-      "tall": false
+      "name": "The Great Escape — Fideles & Gordo",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/great-escape.jpg",
+      "tall": true,
+      "desc": "Ahlam Village, Kfardebian · 14–15 Aug 2026",
+      "link": "https://www.instagram.com/2nd__sun/p/Db3T96jCCVE/"
     },
     {
       "id": 3,
-      "name": "After Hours",
-      "city": "Beirut",
-      "year": "2023",
+      "name": "KIN — The Yearly Reunion",
+      "city": "Lebanon",
+      "year": "2026",
       "type": "Club Nights",
-      "img": "https://images.unsplash.com/photo-1571266752820-89a5571c0b43?w=600&q=80",
-      "tall": false
+      "img": "/events/kin.jpg",
+      "tall": true,
+      "desc": "Wardeh, Mzaar Kfardebian · 14 Aug 2026 · 11,000 guests",
+      "link": "https://www.instagram.com/kinbeirut/reel/DcETbX9sLlZ/"
     },
     {
       "id": 4,
-      "name": "Casa Blanche",
-      "city": "Mykonos",
-      "year": "2023",
-      "type": "Private",
-      "img": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=80",
-      "tall": true
+      "name": "Odin",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/odin.jpg",
+      "tall": true,
+      "desc": "13 Aug 2026"
     },
     {
       "id": 5,
-      "name": "Neon Chapter",
-      "city": "Riyadh",
-      "year": "2024",
-      "type": "Brand Events",
-      "img": "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800&q=80",
-      "tall": false
+      "name": "Aegis Festival",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/aegis.jpg",
+      "tall": true,
+      "desc": "9–11 Jul 2026"
     },
     {
       "id": 6,
-      "name": "Private Shore",
-      "city": "Cyprus",
-      "year": "2023",
-      "type": "Private",
-      "img": "https://images.unsplash.com/photo-1519671282429-b44b41c2a973?w=800&q=80",
-      "tall": false
+      "name": "Matt Merheb",
+      "city": "London",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/matt-merheb.webp",
+      "tall": true,
+      "desc": "Paloma · Fri 17 Apr 2026",
+      "link": "https://ra.co/events/2409657"
+    },
+    {
+      "id": 7,
+      "name": "Laolu — 1 Year Birthday",
+      "city": "London",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/laolu-birthday.webp",
+      "tall": true,
+      "desc": "Gallery · Sat 21 Mar 2026",
+      "link": "https://ra.co/events/2378370"
+    },
+    {
+      "id": 8,
+      "name": "PopUp x The Door Club",
+      "city": "Berlin",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/door-club.webp",
+      "tall": true,
+      "desc": "The Door Club · Feb & Mar 2026",
+      "link": "https://ra.co/events/2388101"
+    },
+    {
+      "id": 9,
+      "name": "Arodes",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/arodes.jpg",
+      "tall": true,
+      "desc": "8 Feb 2026"
+    },
+    {
+      "id": 10,
+      "name": "Après Ski",
+      "city": "Lebanon",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/apres-ski.jpg",
+      "tall": true,
+      "desc": "Jan–Feb 2026"
+    },
+    {
+      "id": 11,
+      "name": "Massuma & Matt",
+      "city": "London",
+      "year": "2026",
+      "type": "Club Nights",
+      "img": "/events/massuma-matt.webp",
+      "tall": true,
+      "desc": "Gallery · Fri 30 Jan 2026",
+      "link": "https://ra.co/events/2339456"
+    },
+    {
+      "id": 12,
+      "name": "Jimi Jules — NYE",
+      "city": "Lebanon",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/jimi-jules.jpg",
+      "tall": true,
+      "desc": "31 Dec 2025"
+    },
+    {
+      "id": 13,
+      "name": "Ankhoï",
+      "city": "Lebanon",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/ankhoi.jpg",
+      "tall": true,
+      "desc": "Dec 2025"
+    },
+    {
+      "id": 14,
+      "name": "Seaside Arena",
+      "city": "Lebanon",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/seaside-arena.jpg",
+      "tall": true,
+      "desc": "Seaside Arena, Beirut · 28 Dec 2025"
+    },
+    {
+      "id": 15,
+      "name": "Nic Merheb x Matt Merheb",
+      "city": "London",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/nic-matt-merheb.webp",
+      "tall": false,
+      "desc": "Gallery · Thu 27 Nov 2025",
+      "link": "https://ra.co/events/2296454"
+    },
+    {
+      "id": 16,
+      "name": "&friends",
+      "city": "London",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/friends.webp",
+      "tall": true,
+      "desc": "Theata · Fri 17 Oct 2025",
+      "link": "https://ra.co/events/2263963"
+    },
+    {
+      "id": 17,
+      "name": "Peace Control",
+      "city": "London",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/peace-control.webp",
+      "tall": true,
+      "desc": "Gallery · Thu 25 Sep 2025",
+      "link": "https://ra.co/events/2253627"
+    },
+    {
+      "id": 18,
+      "name": "ARY:EH",
+      "city": "London",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/aryeh.webp",
+      "tall": true,
+      "desc": "Gallery · Thu 10 Apr 2025",
+      "link": "https://ra.co/events/2128534"
+    },
+    {
+      "id": 19,
+      "name": "PopUp x Scotch",
+      "city": "London",
+      "year": "2025",
+      "type": "Club Nights",
+      "img": "/events/scotch.webp",
+      "tall": false,
+      "desc": "The Scotch · Thu 6 Mar 2025",
+      "link": "https://ra.co/events/2113186"
+    },
+    {
+      "id": 20,
+      "name": "DOVnROBS",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/dovnrobs.webp",
+      "tall": true,
+      "desc": "B London · Thu 5 Dec 2024",
+      "link": "https://ra.co/events/2052997"
+    },
+    {
+      "id": 21,
+      "name": "Laolu",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/laolu.webp",
+      "tall": true,
+      "desc": "B London · Thu 28 Nov 2024",
+      "link": "https://ra.co/events/2041632"
+    },
+    {
+      "id": 22,
+      "name": "Caiiro",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/caiiro.webp",
+      "tall": true,
+      "desc": "Aures London · Fri 8 Nov 2024",
+      "link": "https://ra.co/events/2032308"
+    },
+    {
+      "id": 23,
+      "name": "Chambord",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/chambord.webp",
+      "tall": true,
+      "desc": "B London · Sat 19 Oct 2024",
+      "link": "https://ra.co/events/2019511"
+    },
+    {
+      "id": 24,
+      "name": "Moojo",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/moojo.webp",
+      "tall": false,
+      "desc": "Maroto · Fri 11 Oct 2024",
+      "link": "https://ra.co/events/2013627"
+    },
+    {
+      "id": 25,
+      "name": "Marten Lou",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/marten-lou.png",
+      "tall": true,
+      "desc": "B London · Thu 29 Feb 2024",
+      "link": "https://ra.co/events/1867398"
+    },
+    {
+      "id": 26,
+      "name": "Deep Root Tribe",
+      "city": "London",
+      "year": "2024",
+      "type": "Club Nights",
+      "img": "/events/deep-root-tribe.webp",
+      "tall": true,
+      "desc": "B London · Sat 3 Feb 2024",
+      "link": "https://ra.co/events/1852831"
     }
   ],
   "testimonials": [
@@ -151,14 +376,15 @@
     }
   ],
   "contact": {
-    "headline": "Let's Draw Something Together",
-    "email": "hello@popup.events",
+    "headline": "Let's Make It Happen",
+    "email": "hello@yourdomain.com",
+    "phone": "+961 00 000 000",
     "tagline": "Sharp Nights. Perfect Execution.",
     "socials": [
       {
         "label": "IG",
         "full": "Instagram",
-        "href": "#"
+        "href": "https://www.instagram.com/popupmusicx/"
       },
       {
         "label": "TK",
