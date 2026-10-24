@@ -10,8 +10,8 @@ const MAX_UPLOAD_BYTES = 4 * 1024 * 1024
 const VALID_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif']
 
 function isAuthed(): boolean {
-  const session = cookies().get('popup_admin')?.value
-  return session === process.env.ADMIN_SECRET
+  const secret = process.env.ADMIN_SECRET
+  return Boolean(secret) && cookies().get('popup_admin')?.value === secret
 }
 
 async function saveLocally(filename: string, file: File): Promise<string> {

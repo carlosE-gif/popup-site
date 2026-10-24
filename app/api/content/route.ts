@@ -3,8 +3,8 @@ import { cookies } from 'next/headers'
 import { getContent, isSiteContent, writeContent } from '@/lib/content'
 
 function isAuthed(): boolean {
-  const session = cookies().get('popup_admin')?.value
-  return session === process.env.ADMIN_SECRET
+  const secret = process.env.ADMIN_SECRET
+  return Boolean(secret) && cookies().get('popup_admin')?.value === secret
 }
 
 export async function GET() {
