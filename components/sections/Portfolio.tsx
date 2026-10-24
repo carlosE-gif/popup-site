@@ -7,6 +7,43 @@ import type { EventItem } from "@/lib/content";
 
 const ALL = "All";
 
+// Grey until hover on desktop; touch screens get colour and details via .event-card in globals.css
+function EventCard({ event }: { event: EventItem }) {
+  const card = (
+    <div className={`relative overflow-hidden ${event.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
+      <Image
+        src={event.img}
+        alt={event.name}
+        fill
+        className="event-photo object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
+      <div className="absolute inset-0 bg-[#0A0A0A]/30 group-hover:bg-[#0A0A0A]/50 transition-colors duration-500" />
+      <div className="event-info absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/20 to-transparent translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
+        <p
+          className="font-mono text-[9px] tracking-[0.2em] text-white/60 uppercase mb-1"
+          style={{ fontFamily: "var(--font-space-mono)" }}
+        >
+          {event.city} — {event.year}
+        </p>
+        <h3 className="font-playfair font-bold italic text-2xl text-white leading-tight">
+          {event.name}
+          {event.link && <span aria-hidden="true" className="ml-2 not-italic text-base text-white/60">↗</span>}
+        </h3>
+        {event.desc && <p className="mt-2 text-xs text-white/60">{event.desc}</p>}
+      </div>
+    </div>
+  );
+
+  return event.link ? (
+    <a href={event.link} target="_blank" rel="noopener noreferrer" aria-label={`${event.name}, open event page in a new tab`}>
+      {card}
+    </a>
+  ) : (
+    card
+  );
+}
+
 export default function Portfolio({ events }: { events: EventItem[] }) {
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
@@ -104,31 +141,9 @@ export default function Portfolio({ events }: { events: EventItem[] }) {
                   duration: 0.6,
                   ease: [0.25, 0.46, 0.45, 0.94],
                 }}
-                className="group relative overflow-hidden break-inside-avoid"
+                className="event-card group relative overflow-hidden break-inside-avoid"
               >
-                <div className={`relative overflow-hidden ${event.tall ? "aspect-[3/4]" : "aspect-[4/3]"}`}>
-                  <Image
-                    src={event.img}
-                    alt={event.name}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  {/* Dark overlay always */}
-                  <div className="absolute inset-0 bg-[#0A0A0A]/30 group-hover:bg-[#0A0A0A]/50 transition-colors duration-500" />
-                  {/* Info overlay on hover */}
-                  <div className="absolute inset-0 flex flex-col justify-end p-6 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400">
-                    <p
-                      className="font-mono text-[9px] tracking-[0.2em] text-white/60 uppercase mb-1"
-                      style={{ fontFamily: "var(--font-space-mono)" }}
-                    >
-                      {event.city} — {event.year}
-                    </p>
-                    <h3 className="font-playfair font-bold italic text-2xl text-white leading-tight">
-                      {event.name}
-                    </h3>
-                  </div>
-                </div>
+                <EventCard event={event} />
               </motion.div>
             ))}
           </motion.div>

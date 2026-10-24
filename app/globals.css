@@ -131,6 +131,17 @@
   animation-delay: 0.4s;
 }
 
+/* Touch screens can't hover: show past-event photos in colour with their details */
+@media (hover: none) {
+  .event-card .event-photo {
+    filter: none;
+  }
+  .event-card .event-info {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 2px;

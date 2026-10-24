@@ -25,6 +25,8 @@ export interface EventItem {
   type: string
   img: string
   tall: boolean
+  desc?: string
+  link?: string
 }
 
 export interface TestimonialItem {

@@ -80,7 +80,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/lazare.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "Gallery · Sat 19 Sep 2026",
+      "link": "https://ra.co/events/2520772"
     },
     {
       "id": 2,
@@ -89,7 +91,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/great-escape.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "Ahlam Village, Kfardebian · 14–15 Aug 2026",
+      "link": "https://www.instagram.com/2nd__sun/p/Db3T96jCCVE/"
     },
     {
       "id": 3,
@@ -98,7 +102,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/kin.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "Wardeh, Mzaar Kfardebian · 14 Aug 2026 · 11,000 guests",
+      "link": "https://www.instagram.com/kinbeirut/reel/DcETbX9sLlZ/"
     },
     {
       "id": 4,
@@ -107,7 +113,8 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/odin.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "13 Aug 2026"
     },
     {
       "id": 5,
@@ -116,7 +123,8 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/aegis.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "9–11 Jul 2026"
     },
     {
       "id": 6,
@@ -125,7 +133,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/matt-merheb.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Paloma · Fri 17 Apr 2026",
+      "link": "https://ra.co/events/2409657"
     },
     {
       "id": 7,
@@ -134,7 +144,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/laolu-birthday.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Gallery · Sat 21 Mar 2026",
+      "link": "https://ra.co/events/2378370"
     },
     {
       "id": 8,
@@ -143,7 +155,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/door-club.webp",
-      "tall": true
+      "tall": true,
+      "desc": "The Door Club · Feb & Mar 2026",
+      "link": "https://ra.co/events/2388101"
     },
     {
       "id": 9,
@@ -152,7 +166,8 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/arodes.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "8 Feb 2026"
     },
     {
       "id": 10,
@@ -161,7 +176,8 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/apres-ski.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "Jan–Feb 2026"
     },
     {
       "id": 11,
@@ -170,7 +186,9 @@
       "year": "2026",
       "type": "Club Nights",
       "img": "/events/massuma-matt.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Gallery · Fri 30 Jan 2026",
+      "link": "https://ra.co/events/2339456"
     },
     {
       "id": 12,
@@ -179,7 +197,8 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/jimi-jules.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "31 Dec 2025"
     },
     {
       "id": 13,
@@ -188,7 +207,8 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/ankhoi.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "Dec 2025"
     },
     {
       "id": 14,
@@ -197,7 +217,8 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/seaside-arena.jpg",
-      "tall": true
+      "tall": true,
+      "desc": "Seaside Arena, Beirut · 28 Dec 2025"
     },
     {
       "id": 15,
@@ -206,7 +227,9 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/nic-matt-merheb.webp",
-      "tall": false
+      "tall": false,
+      "desc": "Gallery · Thu 27 Nov 2025",
+      "link": "https://ra.co/events/2296454"
     },
     {
       "id": 16,
@@ -215,7 +238,9 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/friends.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Theata · Fri 17 Oct 2025",
+      "link": "https://ra.co/events/2263963"
     },
     {
       "id": 17,
@@ -224,7 +249,9 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/peace-control.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Gallery · Thu 25 Sep 2025",
+      "link": "https://ra.co/events/2253627"
     },
     {
       "id": 18,
@@ -233,7 +260,9 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/aryeh.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Gallery · Thu 10 Apr 2025",
+      "link": "https://ra.co/events/2128534"
     },
     {
       "id": 19,
@@ -242,7 +271,9 @@
       "year": "2025",
       "type": "Club Nights",
       "img": "/events/scotch.webp",
-      "tall": false
+      "tall": false,
+      "desc": "The Scotch · Thu 6 Mar 2025",
+      "link": "https://ra.co/events/2113186"
     },
     {
       "id": 20,
@@ -251,7 +282,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/dovnrobs.webp",
-      "tall": true
+      "tall": true,
+      "desc": "B London · Thu 5 Dec 2024",
+      "link": "https://ra.co/events/2052997"
     },
     {
       "id": 21,
@@ -260,7 +293,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/laolu.webp",
-      "tall": true
+      "tall": true,
+      "desc": "B London · Thu 28 Nov 2024",
+      "link": "https://ra.co/events/2041632"
     },
     {
       "id": 22,
@@ -269,7 +304,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/caiiro.webp",
-      "tall": true
+      "tall": true,
+      "desc": "Aures London · Fri 8 Nov 2024",
+      "link": "https://ra.co/events/2032308"
     },
     {
       "id": 23,
@@ -278,7 +315,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/chambord.webp",
-      "tall": true
+      "tall": true,
+      "desc": "B London · Sat 19 Oct 2024",
+      "link": "https://ra.co/events/2019511"
     },
     {
       "id": 24,
@@ -287,7 +326,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/moojo.webp",
-      "tall": false
+      "tall": false,
+      "desc": "Maroto · Fri 11 Oct 2024",
+      "link": "https://ra.co/events/2013627"
     },
     {
       "id": 25,
@@ -296,7 +337,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/marten-lou.png",
-      "tall": true
+      "tall": true,
+      "desc": "B London · Thu 29 Feb 2024",
+      "link": "https://ra.co/events/1867398"
     },
     {
       "id": 26,
@@ -305,7 +348,9 @@
       "year": "2024",
       "type": "Club Nights",
       "img": "/events/deep-root-tribe.webp",
-      "tall": true
+      "tall": true,
+      "desc": "B London · Sat 3 Feb 2024",
+      "link": "https://ra.co/events/1852831"
     }
   ],
   "testimonials": [
